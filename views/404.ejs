@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ENook</title>
+  </head>
+  <body>
+    <section class="">
+      <div class="hero-body">
+        <img
+          width="300px"
+          src="https://media.giphy.com/media/xTiN0L7EW5trfOvEk0/giphy.gif"
+          alt="not found"
+        />
+        <p>404 Not Found 😞</p>
+        <% if (error) { %>
+        <p><%= error.message %></p>
+        <% } %>
+      </div>
+    </section>
+    <main>
+      <a class="button" href="/products">Back To All Products</a>
+    </main>
+  </body>
+</html>
