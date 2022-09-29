@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const { PORT } = process.env;
 require('dotenv').config();
+const { PORT } = process.env;
 require('./config/db.connection');
 const methodOverride = require('method-override');
 const booksController = require('./controllers/books_controller.js');
