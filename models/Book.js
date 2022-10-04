@@ -13,8 +13,8 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: [true, 'cover cannot be empty']
     },
-    date: {
-        type: Date,
+    year: {
+        type: Number,
     },
     overview: {
         type: String,

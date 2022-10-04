@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const books = require('../models/Book.js');
+const db = require('../models')
+const mongoose = require('mongoose');
+
 
 // routes
 //new
-router.get('/new', (req, res) => {
-    res.send('new route')
-});
+// router.get('/new', (req, res) => {
+//     res.send('new route')
+// });
 
 //show
 router.get('/:id/', (req, res) => {
@@ -19,14 +21,21 @@ router.get('/:id/edit', (req, res) => {
 });
 
 //index
-router.get('/', (req, res) => {
-    res.send('library index page')
+router.get('/', async (req, res) => {
+    try {
+        res.json(await db.Book.find({}));
+    } catch (error) {
+        res.status(400).json(error)
+    }
 });
 
 //create
-router.post('/', (req, res) => {
-    books.push(req.body)
-    res.redirect('/library')
+router.post('/', async (req, res) => {
+    try {
+        res.json(await db.Book.create(req.body));
+    } catch (error) {
+        res.status(400).json(error)
+    }
 });
 
 //update
@@ -36,10 +45,10 @@ router.put('/:id', (req, res) => {
 });
 
 //delete
-router.delete('/:id', (req, res) => {
-    books.splice(req.params.bookId, 1);
-    return res.redirect('library');
-});
+// router.delete('/:id', (req, res) => {
+//     books.splice(req.params.bookId, 1);
+//     return res.redirect('library');
+// });
 
 
 
