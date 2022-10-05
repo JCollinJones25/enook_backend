@@ -1,34 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const bookSchema = new mongoose.Schema({
+const bookSchema = new mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: [true, 'title cannot be empty']
+      type: String,
+      required: [true, "title cannot be empty"],
     },
     author: {
-        type: String,
-        required: [true, 'author cannot be empty']
+      type: String,
+      required: [true, "author cannot be empty"],
     },
     cover: {
-        type: String,
-        required: [true, 'cover cannot be empty']
+      type: String,
+      required: [true, "cover cannot be empty"],
     },
     year: {
-        type: Number,
+      type: Number,
     },
     overview: {
-        type: String,
+      type: String,
     },
     price: {
-        type: Number,
-        min: [0, 'price cannot be negative'],
-        required: [true, 'price cannot be empty']
+      type: Number,
+      min: [0, "price cannot be negative"],
+      required: [true, "price cannot be empty"],
     },
-},
-{
-    timestamps: true
-});
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Book = mongoose.model('Book', bookSchema);
+const Book = mongoose.model("Book", bookSchema);
 module.exports = Book;
-

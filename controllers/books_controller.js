@@ -1,48 +1,37 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require('../models')
-const mongoose = require('mongoose');
-
+const db = require("../models");
+const mongoose = require("mongoose");
 
 // routes
-//new
-// router.get('/new', (req, res) => {
-//     res.send('new route')
-// });
+//index
+router.get("/", async (req, res) => {
+  try {
+    res.json(await db.Book.find({}));
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
 
 //show
-router.get('/:id/', (req, res) => {
-    res.send('show route')
-});
-
-//edit
-router.get('/:id/edit', (req, res) => {
-    res.send('edit page')
-});
-
-//index
-router.get('/', async (req, res) => {
-    try {
-        res.json(await db.Book.find({}));
-    } catch (error) {
-        res.status(400).json(error)
-    }
+router.get("/:id/", (req, res) => {
+  res.send("show route");
 });
 
 //create
-router.post('/', async (req, res) => {
-    try {
-        res.json(await db.Book.create(req.body));
-    } catch (error) {
-        res.status(400).json(error)
-    }
+router.post("/", async (req, res) => {
+  try {
+    res.json(await db.Book.create(req.body));
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 //update
-router.put('/:id', (req, res) => {
-    products[req.params.id] = req.body
-    res.redirect(`/library/${req.params.id}`)
-});
+// router.put("/:id", (req, res) => {
+//   products[req.params.id] = req.body;
+//   res.redirect(`/library/${req.params.id}`);
+// });
 
 //delete
 // router.delete('/:id', (req, res) => {
@@ -50,7 +39,14 @@ router.put('/:id', (req, res) => {
 //     return res.redirect('library');
 // });
 
+//new
+// router.get('/new', (req, res) => {
+//     res.send('new route')
+// });
 
-
+//edit
+// router.get("/:id/edit", (req, res) => {
+//   res.send("edit page");
+// });
 
 module.exports = router;
