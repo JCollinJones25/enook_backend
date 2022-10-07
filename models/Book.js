@@ -20,6 +20,9 @@ const bookSchema = new mongoose.Schema(
     overview: {
       type: String,
     },
+    genre: {
+      type: String,
+    },
     price: {
       type: Number,
       min: [0, "price cannot be negative"],
