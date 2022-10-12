@@ -16,12 +16,15 @@ const bookSchema = new mongoose.Schema(
     },
     year: {
       type: Number,
+      required: [true, "year cannot be empty"],
     },
     overview: {
       type: String,
+      required: [true, "overview cannot be empty"],
     },
     genre: {
       type: String,
+      required: [true, "genre cannot be empty"],
     },
     price: {
       type: Number,
