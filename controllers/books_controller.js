@@ -5,25 +5,35 @@ const mongoose = require("mongoose");
 
 // routes
 //index
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     res.json(await db.Book.find({}));
   } catch (error) {
-    res.status(400).json(error);
+    console.log(error);
+    req.error = error;
+    return next();
   }
 });
 
 //show
-router.get("/:id/", (req, res) => {
-  res.send("show route");
+router.get("/:id", async (req, res, next) => {
+  try {
+    res.json(await db.Book.findById(req.params.id));
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
 //create
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     res.json(await db.Book.create(req.body));
   } catch (error) {
-    res.status(400).json(error);
+    console.log(error);
+    req.error = error;
+    return next();
   }
 });
 
@@ -34,10 +44,17 @@ router.post("/", async (req, res) => {
 // });
 
 //delete
-// router.delete('/:id', (req, res) => {
-//     books.splice(req.params.bookId, 1);
-//     return res.redirect('library');
-// });
+router.delete('/:id', (req, res, next) => {
+  try {
+    console.log(req.params.bookId)
+    books.splice(req.params.bookId, 1);
+    return res.redirect('/');
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
+});
 
 //new
 // router.get('/new', (req, res) => {
