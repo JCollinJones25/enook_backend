@@ -44,10 +44,11 @@ router.post("/", async (req, res, next) => {
 // });
 
 //delete
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
-    console.log(req.params.bookId)
-    books.splice(req.params.bookId, 1);
+    console.log("hitting delete route")
+    const deletedBook = await db.Book.findByIdAndRemove(req.params.bookId);
+    console.log(deletedBook);
     return res.redirect('/');
   } catch (error) {
     console.log(error);
