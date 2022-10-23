@@ -46,10 +46,7 @@ router.post("/", async (req, res, next) => {
 //delete
 router.delete('/:id', async (req, res, next) => {
   try {
-    console.log("hitting delete route")
-    const deletedBook = await db.Book.findByIdAndRemove(req.params.bookId);
-    console.log(deletedBook);
-    return res.redirect('/');
+    res.json(await db.Book.findByIdAndRemove(req.params.id));
   } catch (error) {
     console.log(error);
     req.error = error;
