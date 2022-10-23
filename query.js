@@ -2,6 +2,17 @@
 // const mongoose = require("mongoose");
 
 // const books = [
+    //   {
+    //     title: "The Eye of the World",
+    //     author: "Robert Jordan",
+    //     cover:
+    //       "https://static.wikia.nocookie.net/wot/images/2/2d/EOTWCover.jpg",
+    //     year: 1990,
+    //     overview:
+    //       "The Eye of the World, the first novel in Robert Jordan's #1 New York Times bestselling epic fantasy series, The Wheel of Time®, follows Moiraine Damodred as she arrives in Emond's Field on a quest to find the one prophesized to stand against The Dark One.",
+    //     genre: "Fantasy",
+    //     price: 5.99,
+    //   },
 //   {
 //     title: "Shutter Island",
 //     author: "Dennis Lehane",
@@ -24,6 +35,17 @@
 //     genre: "Tragedy",
 //     price: 4.99,
 //   },
+//   {
+//     title: "Confessions",
+//     author: "Saint Augustine",
+//     cover:
+//       "http://prodimage.images-bn.com/pimages/9780199537822_p0_v2_s1200x630.jpg",
+//     year: 400,
+//     overview:
+//       "The Confessions is a spiritual autobiography, covering the first 35 years of Augustine's life, with particular emphasis on Augustine's spiritual development and how he accepted Christianity. The Confessions is divided into 13 books. Books 1 through 9 contain Augustine's life story. Book 10 is an exploration of memory.",
+//     genre: "Autobiography",
+//     price: 6.99,
+//   }
 // ];
 
 // db.Book.insertMany(books, {
