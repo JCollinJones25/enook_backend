@@ -54,14 +54,4 @@ router.delete('/:id', async (req, res, next) => {
   }
 });
 
-//new
-// router.get('/new', (req, res) => {
-//     res.send('new route')
-// });
-
-//edit
-// router.get("/:id/edit", (req, res) => {
-//   res.send("edit page");
-// });
-
 module.exports = router;
